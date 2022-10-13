@@ -1,0 +1,7 @@
+#background {
+    position: relative;
+}
+#character-options {
+    position: absolute;
+    background-color: white;
+}

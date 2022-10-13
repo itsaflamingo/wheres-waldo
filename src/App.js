@@ -31,21 +31,24 @@ function App() {
     }]})
     const [displayCharacters, setDisplayCharacters] = useState(false);
 
-    const setDivPosition = (e) => {
-      const charDiv = document.querySelector('#character-options');
-      console.log(charDiv);
-      const x = e.pageX;
-      const y = e.pageY;
+    useEffect(() => {
+      const setDivPosition = (e) => {
+        if(displayCharacters === false) return;
+        const charDiv = document.querySelector('#character-options');
+        const x = e.pageX;
+        const y = e.pageY;
+  
+        charDiv.style.top = y + 'px';
+        charDiv.style.left = x + 'px';
+      }
 
-      charDiv.style.top = y + 'px';
-      charDiv.style.left = x + 'px';
-    }
+      document.addEventListener('click', e => setDivPosition(e))
+      return()=> {
+        document.removeEventListener('click', e => setDivPosition(e))
+      }
+    }, [displayCharacters])
 
-    const toggleDisplay = (e) => {
-      setDisplayCharacters(!displayCharacters);
-      if(displayCharacters === false) return;
-      setDivPosition(e);
-    }
+    const toggleDisplay = () => setDisplayCharacters(!displayCharacters);
 
   return (
     <div className="App">
