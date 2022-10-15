@@ -22,11 +22,11 @@ const db = getFirestore(app);
 async function saveCharacters(obj) {
     try {
         const docRef = await setDoc(doc(db, "characters", obj.name), {
-        [obj.name]: {
-          image: obj.image,
-          location: obj.location,
-          size: obj.size
-        }}
+          [obj.name]: {
+            image: obj.image,
+            location: obj.location,
+            size: obj.size
+          }}
         );
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {

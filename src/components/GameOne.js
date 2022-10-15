@@ -3,7 +3,7 @@ import EnhancedBackground from "./EnhancedBackground";
 import CharacterList from "./CharacterList";
 
 function GameOne(props) {
-    const {background, handleMouseMove, displayCharacters, toggleDisplay} = props;
+    const {background, handleMouseMove, displayCharacters} = props;
 
     return (
         <div 

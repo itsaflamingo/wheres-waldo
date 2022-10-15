@@ -67,9 +67,10 @@ function App() {
 
     useEffect(() => {
       const charDiv = document.querySelector('#character-options');
+      
       const setDivPosition = (e) => {
         const background = document.querySelector('#background');
-        background.classList.add('no-events');
+        background.classList.toggle('no-events');
         if(displayCharacters === false) return;
         const x = e.pageX;
         const y = e.pageY;
@@ -80,19 +81,21 @@ function App() {
 
       const getChosenCharacter = async (e) => {
         const id = e.target.id;
-        const chosenCharacter = background.characters.filter(char => char.name === id)
-        const dbChar = await retrieve(chosenCharacter[0].name)
+        const chosenCharacter = background.characters.filter(char => char.name === id);
+
+        const dbChar = await retrieve(chosenCharacter[0].name);
+        console.log(dbChar);
         checkIfCharacter(dbChar, id);
       }
 
-      document.addEventListener('click', e => setDivPosition(e))
+      document.addEventListener('click', e => setDivPosition(e));
       if(charDiv === null) return() => {document.removeEventListener('click', e => setDivPosition(e))}
-      charDiv.addEventListener('click', e => getChosenCharacter(e))
+      charDiv.addEventListener('click', e => getChosenCharacter(e));
 
       return()=> {
         if (numFound < 3) return;
-        document.removeEventListener('click', e => setDivPosition(e))
-        charDiv.removeEventListener('click', e => getChosenCharacter(e))
+        document.removeEventListener('click', e => setDivPosition(e));
+        charDiv.removeEventListener('click', e => getChosenCharacter(e));
       }
     }, [displayCharacters])
 
@@ -103,10 +106,14 @@ function App() {
           x: e.pageX - e.target.offsetLeft,
           y: e.pageY - e.target.offsetTop
       })
+      console.log(coordinates);
   }
 
     const checkIfCharacter = (obj, name) => {
       const location = obj[name].location;
+
+      console.log('coord.x:', coordinates.x, 'locat.x:', location.x)
+      console.log('coord.y:', coordinates.y, 'locat.y:', location.y)
 
       if(coordinates.x > (location.x - 110) &&
       coordinates.x < (location.x + 110) && 
