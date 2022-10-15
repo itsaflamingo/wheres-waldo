@@ -69,8 +69,6 @@ function App() {
       const charDiv = document.querySelector('#character-options');
       
       const setDivPosition = (e) => {
-        const background = document.querySelector('#background');
-        background.classList.toggle('no-events');
         if(displayCharacters === false) return;
         const x = e.pageX;
         const y = e.pageY;
@@ -106,7 +104,6 @@ function App() {
           x: e.pageX - e.target.offsetLeft,
           y: e.pageY - e.target.offsetTop
       })
-      console.log(coordinates);
   }
 
     const checkIfCharacter = (obj, name) => {
