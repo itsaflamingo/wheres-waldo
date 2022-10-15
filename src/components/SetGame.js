@@ -1,4 +1,4 @@
-import './styles/App.css';
+import './styles/SetGame.css';
 import React, {useEffect, useState} from 'react';
 import GameOne from './components/GameOne';
 import puzzleOne from './images/img1.jpg'
@@ -10,7 +10,7 @@ import bowser from './images/bowser.png'
 import {saveCharacters, retrieve} from './components/firebaseConfig';
 import MakeCursor from './components/MakeCursor';
 
-function App() {
+function SetGame() {
 
   const [background, setBackground] = useState({
     name: 'puzzle one',
@@ -130,4 +130,4 @@ function App() {
   );
 }
 
-export default App;
+export default SetGame;
