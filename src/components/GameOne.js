@@ -8,8 +8,7 @@ function GameOne(props) {
     return (
         <div 
         id='background' 
-        onMouseMove={(e) => handleMouseMove(e)}
-        onClick={() => toggleDisplay()}>
+        onMouseMove={(e) => handleMouseMove(e)}>
             <img src={background.image} alt='puzzle' />
             {displayCharacters && (<CharacterList characters={background.characters} />)}
         </div>

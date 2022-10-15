@@ -1,7 +1,47 @@
+body {
+    margin: 0;
+    cursor: none;
+}
+.App {
+    width: max-content;
+    height: max-content;
+}
 #background {
     position: relative;
 }
 #character-options {
     position: absolute;
     background-color: white;
+    z-index: 10;
+    height: 1%;
+    width: 20%;
+    font-size: 1.5rem;
+}
+#character-options:hover {
+    cursor: pointer;
+}
+.character {
+    height: 33%;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+.character:hover {
+    background-color: grey;
+}
+/* CURSOR */
+#cursor {
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    border: 4px dashed white;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+.no-events {
+    pointer-events: none;
+}
+.no-events > #character-options {
+    pointer-events: auto;
 }

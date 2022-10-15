@@ -4,16 +4,8 @@ import CharacterList from "./CharacterList";
 const EnhancedBackground = (Component) => {
     
     const EnhancedBackground = (props) => {
-        const [coordinates, setCoordinates] = useState({});
 
-        const {background} = props;
-
-        const handleMouseMove = (e) => {
-            setCoordinates({
-                x: e.clientX - e.target.offsetLeft,
-                y: e.clientY - e.target.offsetTop
-            })
-        }
+        const {background, handleMouseMove} = props;
 
         return (
             <Component 
