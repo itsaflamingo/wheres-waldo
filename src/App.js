@@ -9,7 +9,6 @@ import yubaba from './images/yubaba.png'
 import bowser from './images/bowser.png'
 import {saveCharacters, retrieve} from './components/firebaseConfig';
 import MakeCursor from './components/MakeCursor';
-import { getDefaultNormalizer } from '@testing-library/react';
 
 function App() {
 
@@ -97,6 +96,7 @@ function App() {
       }
     }, [displayCharacters])
 
+    
     const toggleDisplay = () => setDisplayCharacters(!displayCharacters);
 
     const handleMouseMove = (e) => {
@@ -109,13 +109,10 @@ function App() {
     const checkIfCharacter = (obj, name) => {
       const location = obj[name].location;
 
-      console.log('coord.x:', coordinates.x, 'locat.x:', location.x)
-      console.log('coord.y:', coordinates.y, 'locat.y:', location.y)
-
       if(coordinates.x > (location.x - 110) &&
-      coordinates.x < (location.x + 110) && 
-      coordinates.y < (location.y + 110) &&
-      coordinates.y > (location.y - 110)) {
+         coordinates.x < (location.x + 110) && 
+         coordinates.y < (location.y + 110) &&
+         coordinates.y > (location.y - 110)) {
         console.log(`You found ${name}!`)
         setNumFound(() => numFound + 1);
       }

@@ -5,7 +5,7 @@ const EnhancedBackground = (Component) => {
     
     const EnhancedBackground = (props) => {
 
-        const {background, handleMouseMove} = props;
+        const {handleMouseMove} = props;
 
         return (
             <Component 

@@ -20,6 +20,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function saveCharacters(obj) {
+  if(obj.name === undefined) return;
     try {
         const docRef = await setDoc(doc(db, "characters", obj.name), {
           [obj.name]: {
