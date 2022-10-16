@@ -25,7 +25,6 @@ async function saveCharacters(obj) {
           [obj.name]: {
             image: obj.image,
             location: obj.location,
-            size: obj.size
           }}
         );
       } catch (e) {

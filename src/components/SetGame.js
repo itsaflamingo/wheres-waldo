@@ -1,45 +1,12 @@
 import '../styles/SetGame.css';
 import React, {useEffect, useState} from 'react';
 import GameOne from './GameOne';
-import puzzleOne from '../images/img1.jpg'
-import img2 from '../images/img2.jpg'
-import img3 from '../images/img3.jpg'
-import hollowKnight from '../images/hollow-knight.webp'
-import yubaba from '../images/yubaba.png'
-import bowser from '../images/bowser.png'
 import {saveCharacters, retrieve} from './firebaseConfig';
 import MakeCursor from './MakeCursor';
 
 function SetGame() {
 
-  const [background, setBackground] = useState({
-    name: 'puzzle one',
-    image: puzzleOne,
-    characters: [{
-        name: 'Hollow Knight',
-        image: hollowKnight,
-        location: {
-          x: 1195,
-          y: 12456 },
-        id: 1,
-        size: 'small'
-    }, {
-        name: 'Yubaba',
-        image: yubaba,
-        location: {
-          x: 1038,
-          y: 5173 },
-        id: 2,
-        size: 'small'
-    }, {
-        name: 'Bowser',
-        image: bowser,
-        location: {
-          x: 1672,
-          y: 8148 },
-        id: 3,
-        size: 'medium'
-    }]})
+  const [background, setBackground] = useState({})
     const [displayCharacters, setDisplayCharacters] = useState(false);
     const [coordinates, setCoordinates] = useState({});
     const [numFound, setNumFound] = useState(0);
