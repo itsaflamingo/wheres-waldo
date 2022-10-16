@@ -6,10 +6,10 @@ import yubaba from '../images/yubaba.png'
 import bowser from '../images/bowser.png'
 import stewie from '../images/stewie.png'
 import bender from '../images/bender.png'
-import squanchy from '../images/squanchy.png'
-import meg from '../images/meg.png'
+import squanchy from '../images/squanchy.webp'
+import meg from '../images/meg.webp'
 import beastTitan from '../images/beast-titan.png'
-import goku from '../images/goku.png'
+import goku from '../images/goku.webp'
 
 
 const MakeBackgrounds = () => {

@@ -1,6 +1,7 @@
 body {
     margin: 0;
     cursor: none;
+    --gradient: linear-gradient(90deg, rgb(201, 14, 14), rgb(56, 56, 56));
 }
 .App {
     width: max-content;
@@ -47,9 +48,11 @@ body {
 }
 /* CHOOSE GAME */
 #page {
+    background-image: var(--gradient);
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: pink;
@@ -59,23 +62,36 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5%;
 }
 .game {
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 85%;
     background-color: white;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+    background-image: var(--gradient);
+}
+.game-container {
+    height: 90%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+    background-color: rgba(252, 221, 221, 0.303);
 }
 .background {
-    height: 50%;
+    height: 80%;
     width: 50%;
 }
-.background {
-    background-color: rgb(246, 246, 180);
-}
 .characters {
-    height: 50%;
-    width: 30%;
+    height: 80%;
+    width: 33%;
 }
 .character-div {
     display: flex;
@@ -84,5 +100,11 @@ body {
 }
 .character {
     width: 90%;
-    height: 50%;
+    height: 90%;
+}
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55%;
 }

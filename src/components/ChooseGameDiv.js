@@ -8,6 +8,7 @@ function ChooseGameDiv(props) {
         {games.map((game) => {
             return(
                 <div className="game" id={game.name}>
+                    <div className="game-container">
                     <div className="background" style={{
                             backgroundImage: `url(${game.image})`,
                             backgroundSize: 'cover',
@@ -38,6 +39,7 @@ function ChooseGameDiv(props) {
                         }}></div>
                             <div className="name">{game.characters[2].name}</div>
                         </div>
+                    </div>
                     </div>
                 </div>
             )

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './styles/SetGame.css';
-import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 // import SetGame from "./components/SetGame.js";
 import MakeBackgrounds from "./components/Backgrounds";
