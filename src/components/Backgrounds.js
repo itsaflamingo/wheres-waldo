@@ -14,8 +14,9 @@ import goku from '../images/goku.webp'
 
 const MakeBackgrounds = () => {
     return [{
-        name: 'puzzle one',
+        name: 'A.D.2222',
         image: puzzleOne,
+        id: 1,
         characters: [{
             name: 'Hollow Knight',
             image: hollowKnight,
@@ -38,52 +39,54 @@ const MakeBackgrounds = () => {
               y: 8148 },
             id: 3,
         }]}, {
-            name: 'puzzle two',
+            name: 'Robot City',
             image: robotcity,
+            id: 2,
         characters: [{
             name: 'Meg',
             image: meg,
             location: {
-              x: 0,
-              y: 0 },
+              x: 356,
+              y: 658 },
             id: 1,
         }, {
             name: 'Goku',
             image: goku,
             location: {
-              x: 0,
-              y: 0 },
+              x: 1530,
+              y: 2131 },
             id: 2,
         }, {
             name: 'Beast Titan',
             image: beastTitan,
             location: {
-              x: 0,
-              y: 0 },
+              x: 2202,
+              y: 1535 },
             id: 3,
         }]}, {
-            name: 'puzzle three',
+            name: 'Universe 113',
             image: img2,
+            id: 3,
         characters: [{
             name: 'Stewie',
             image: stewie,
             location: {
-              x: 0,
-              y: 0 },
+              x: 575,
+              y: 1559 },
             id: 1,
         }, {
             name: 'Bender',
             image: bender,
             location: {
-              x: 0,
-              y: 0 },
+              x: 1636,
+              y: 1798 },
             id: 2,
         }, {
             name: 'Squanchy',
             image: squanchy,
             location: {
-              x: 0,
-              y: 0 },
+              x: 1388,
+              y: 1041 },
             id: 3,
         }]}
     ]

@@ -2,9 +2,10 @@ import React from "react";
 
 const CharacterList = (props) => {
 
-    const {characters} = props;
+    const {characters, game} = props;
     return(
-        <div id='character-options'>
+        <div className='character-options'
+            id={`${game}`}>
                     {characters.map((char) => {
                         return (
                             <div 

@@ -4,16 +4,28 @@ import GameOne from './GameOne';
 import {saveCharacters, retrieve} from './firebaseConfig';
 import MakeCursor from './MakeCursor';
 
-function SetGame() {
+function SetGame(props) {
 
-  const [background, setBackground] = useState({})
+    const {game} = props;
+
+    const [background, setBackground] = useState({})
     const [displayCharacters, setDisplayCharacters] = useState(false);
     const [coordinates, setCoordinates] = useState({});
     const [numFound, setNumFound] = useState(0);
+    const [showGame, setShowGame] = useState(false);
 
     useEffect(() => {
+      if(game.name === undefined) return;
+      setBackground(game)
+      setShowGame(true);
+    })
+
+    useEffect(() => {
+      if(showGame === false) return;
+      console.log('background set');
       background.characters.map((char) => saveCharacters(char))
-    }, [])
+  
+    }, [showGame])
 
     useEffect(() => {
       const moveCursor = (e) => {
@@ -32,7 +44,7 @@ function SetGame() {
     })
 
     useEffect(() => {
-      const charDiv = document.querySelector('#character-options');
+      const charDiv = document.querySelector('.character-options');
       
       const setDivPosition = (e) => {
         if(displayCharacters === false) return;
@@ -88,11 +100,11 @@ function SetGame() {
   return (
     <div className="App" onClick={() => toggleDisplay()}>
       <MakeCursor />
-      <GameOne 
-      background={background} 
-      displayCharacters={displayCharacters}
-      toggleDisplay={toggleDisplay}
-      handleMouseMove={handleMouseMove} />
+      {showGame && (<GameOne 
+                    background={background} 
+                    displayCharacters={displayCharacters}
+                    toggleDisplay={toggleDisplay}
+                    handleMouseMove={handleMouseMove} />)}
     </div>
   );
 }
