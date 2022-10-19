@@ -18,11 +18,6 @@ function ChooseGame(props) {
         if(showGame === false) return;
         navToGame();
     }, [showGame])
-    
-    useEffect(() => {
-        if(game.name === undefined || showGame === false) return;
-        navToGame();
-    }, [game])
 
     const chooseGame = (e) => {
         const chosenGame = games.filter(game => game.name === e.target.id);

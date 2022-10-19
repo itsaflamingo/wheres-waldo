@@ -16,7 +16,6 @@ body {
 #character-options {
     position: absolute;
     background-color: white;
-    z-index: 10;
     height: 1%;
     width: 12%;
     font-size: 1.5rem;
@@ -53,6 +52,35 @@ body {
 }
 .character:hover {
     background-color: grey;
+}
+/* HEADER */
+#header {
+    position: fixed;
+    top: 0;
+    width: 90vw;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    padding-top: 1.5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#message {
+    position: absolute;
+}
+#timer {
+    font-size: 40px;
+    color: white;
+    font-weight: 900;
+}
+#show-leaderboard {
+    border-radius: 20px;
+    border: none;
+    width: 10%;
+    font-size: 1rem;
+    font-weight: 900;
+    background-color: rgb(252, 181, 29);
 }
 /* CURSOR */
 #cursor {
@@ -99,7 +127,7 @@ body {
     font-weight: 900;
     margin-bottom: 3%;
 }
-#start:hover {
+#start:hover, #show-leaderboard:hover {
     box-shadow: var(--box-shadow);
     background-color: rgb(3, 126, 208);
     color: rgb(251, 228, 183);
@@ -171,4 +199,9 @@ body {
     justify-content: center;
     height: 55%;
 
+}
+/* LEADERBOARD */ 
+#leaderboard {
+    position: absolute;
+    top: 50px
 }
