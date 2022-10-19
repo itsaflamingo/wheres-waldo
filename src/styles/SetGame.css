@@ -82,6 +82,29 @@ body {
     font-weight: 900;
     background-color: rgb(252, 181, 29);
 }
+#leaderboard {
+    background-color: white;
+    width: 15%;
+    border-radius: 20px;
+    height: 2%;
+    position: absolute;
+    top: 10%;
+    left: 51%;
+}
+.score {
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 10%;
+    border-bottom: 1px solid grey;
+    height: 20%;
+}
+#title {
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 7%;
+    margin: 0 10%;
+}
 /* CURSOR */
 #cursor {
     height: 220px;

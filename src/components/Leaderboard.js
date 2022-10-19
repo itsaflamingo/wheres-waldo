@@ -6,11 +6,15 @@ function Leaderboard(props) {
 
     return (
         <div id='leaderboard'>
+            <div id='title'>
+                <h4>Name</h4>
+                <h4>Score</h4>
+            </div>
             {scores.map((score) => {
                 return(
                     <div className="score" key={score.id}>
-                        <p>{score.name}</p>
-                        <p>{score.time}</p>
+                        <div>{score.name}</div>
+                        <div>{score.time}</div>
                     </div>
                 )
             })}
