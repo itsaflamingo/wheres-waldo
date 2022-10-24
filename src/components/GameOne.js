@@ -1,34 +1,42 @@
 import React from "react";
 import EnhancedBackground from "./EnhancedBackground";
 import CharacterList from "./CharacterList";
-import NameInput from "./NameInput";
-import Leaderboard from "./Leaderboard";
+import Header from "./Header";
 
 function GameOne(props) {
-    const {background, handleMouseMove, displayCharacters, timer, message, showInput, setShowInput, showLeaderboard, setShowLeaderboard, scores, setScores} = props;
+    const {background, handleMouseMove, displayCharacters, timer, message, showInput, showLeaderboard, setShowLeaderboard, scores, showMessage, onChange, input, toggleDisplay, setScores, setTimer} = props;
 
     const leaderboard = (e) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        console.log('works');
         setShowLeaderboard(!showLeaderboard);
     }
+
+    const onFormSubmit = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        setScores(scores.concat(input));
+        console.log(input);
+      }
 
     return (
         <div 
         id='background' 
-        onMouseMove={(e) => handleMouseMove(e)}>
-            <div id='header'>
-                <div id='timer'>
-                    <span>{('0'+ Math.floor((timer/60000) % 60)).slice(-2)}:</span>
-                    <span>{('0'+ Math.floor((timer/1000) % 60)).slice(-2)}</span>
-                </div>
-                <button id='show-leaderboard' onClick={(e) => leaderboard(e)}>Leaderboard</button>
-            </div>
-            <h3 id='message'>{message}</h3>
+        onMouseMove={(e) => handleMouseMove(e)}
+        onClick={toggleDisplay}>
+            <Header 
+            timer={timer} 
+            setTimer={setTimer} 
+            showInput={showInput}
+            showLeaderboard={showLeaderboard}
+            scores={scores}
+            leaderboard={leaderboard}
+            showMessage={showMessage}
+            message={message}
+            onChange={onChange}
+            onFormSubmit={onFormSubmit}
+            input={input} />
             <img src={background.image} alt='puzzle' />
-            {showLeaderboard && (<Leaderboard scores={scores} />)}
-            {showInput && (<NameInput />)}
             {displayCharacters && (<CharacterList characters={background.characters} game={background.name} />)}
         </div>
     )
