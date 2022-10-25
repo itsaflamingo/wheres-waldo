@@ -18,7 +18,6 @@ function SetGame(props) {
     const [showLeaderboard, setShowLeaderboard] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
     const [input, setInput] = useState({name: '', timer: 0});
-    const [timerId, setTimerId] = useState('');
     const [scores, setScores] = useState([{
       name: 'lisa',
       time: 0.04,
@@ -147,11 +146,6 @@ function SetGame(props) {
       setShowInput(false);
       setShowLeaderboard(true);
     }, [scores])
-
-    useEffect(() => {
-      if(showInput === false) return;
-      clearInterval(timerId);
-    }, [showInput])
 
   const onChange = (e) => {
     const seconds = document.querySelector('#timer').firstChild.innerHTML;

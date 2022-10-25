@@ -6,7 +6,7 @@ import yubaba from '../images/yubaba.png'
 import bowser from '../images/bowser.png'
 import stewie from '../images/stewie.png'
 import bender from '../images/bender.png'
-import squanchy from '../images/squanchy.webp'
+import totoro from '../images/totoro.png'
 import meg from '../images/meg.webp'
 import beastTitan from '../images/beast-titan.png'
 import goku from '../images/goku.webp'
@@ -82,11 +82,11 @@ const MakeBackgrounds = () => {
               y: 1798 },
             id: 2,
         }, {
-            name: 'Squanchy',
-            image: squanchy,
+            name: 'Totoro',
+            image: totoro,
             location: {
-              x: 1388,
-              y: 1041 },
+              x: 1258,
+              y: 1359 },
             id: 3,
         }]}
     ]
