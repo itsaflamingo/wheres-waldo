@@ -57,7 +57,7 @@ function SetGame(props) {
       }
       document.addEventListener('mousemove', e => moveCursor(e))
       return () => {
-        document.addEventListener('mousemove', e => moveCursor(e))
+        document.removeEventListener('mousemove', e => moveCursor(e))
       }
     })
 

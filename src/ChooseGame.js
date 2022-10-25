@@ -19,11 +19,21 @@ function ChooseGame(props) {
         navToGame();
     }, [showGame])
 
-    const chooseGame = (e) => {
-        const chosenGame = games.filter(game => game.name === e.target.id);
-        setGame(chosenGame[0]);
-        console.log(game);
-    }
+    useEffect(() => {
+        const gameDivs = document.querySelectorAll('.game');
+
+        const chooseGame = (e) => {
+            const chosenGame = games.filter(game => game.name === e.target.id);
+            setGame(chosenGame[0]);
+            console.log(game);
+        }
+
+        gameDivs.forEach(game => game.addEventListener('click', e => chooseGame(e)))
+
+        return(
+            gameDivs.forEach(game => game.removeEventListener('click', e => chooseGame(e)))
+        )
+    })
 
     const nav = useNavigate();
     const navToGame = () => {
@@ -32,7 +42,7 @@ function ChooseGame(props) {
 
     return(
         <div id='page'>
-                <ChooseGameDiv games={games} chooseGame={chooseGame} />
+                <ChooseGameDiv games={games} />
                 <div id='start-btn'>
                     <button id='start'
                     onClick={() => startGame()}>Start</button>
