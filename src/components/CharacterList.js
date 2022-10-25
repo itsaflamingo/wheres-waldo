@@ -11,7 +11,13 @@ const CharacterList = (props) => {
                             <div 
                             className="character" 
                             id={char.name}
-                            key={char.id}>{char.name}</div>
+                            key={char.id}>
+                                <div className='char-img' style={{
+                                backgroundImage: `url(${char.image})`,
+                                backgroundSize: 'contain',
+                                backgroundRepeat: 'no-repeat'
+                            }}></div>
+                                {char.name}</div>
                         )
                     })}
         </div>

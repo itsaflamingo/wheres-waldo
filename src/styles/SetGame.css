@@ -48,11 +48,20 @@ body {
 }
 [id='A.D.2222'] {
     z-index: 10;
-    height: 1%;
+    height: 1.4%;
     width: 12%;
 }
 .character:hover {
     background-color: grey;
+}
+.character:first-child:hover {
+    border-radius: 20px 20px 0 0;
+}
+.character:last-child:hover {
+    border-radius: 0 0 20px 20px;
+}
+.character:last-child {
+    border: none;
 }
 /* HEADER */
 #header {
@@ -252,11 +261,15 @@ button[type=submit] {
 .character {
     width: 90%;
     height: 90%;
+    font-size: 1.3rem;
+}
+.char-img {
+    width: 25%;
+    height: 60%;
 }
 .name {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 55%;
-
 }
