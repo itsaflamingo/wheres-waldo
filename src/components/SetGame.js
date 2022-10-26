@@ -1,7 +1,7 @@
 import '../styles/SetGame.css';
 import React, {useEffect, useState} from 'react';
 import GameOne from './GameOne';
-import {saveCharacters, retrieve} from './firebaseConfig';
+import {saveCharacters, retrieve, saveScores, retrieveScores} from './firebaseConfig';
 import MakeCursor from './MakeCursor';
 import uniqid from "uniqid";
 
@@ -19,32 +19,26 @@ function SetGame(props) {
     const [showLeaderboard, setShowLeaderboard] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
     const [input, setInput] = useState({name: '', timer: 0});
-    const [scores, setScores] = useState([{
-      name: 'lisa',
-      time: 0.04,
-      id: uniqid() 
-    }, {
-      name: 'cookie',
-      time: 0.06,
-      id: uniqid()
-    },{
-      name: 'toki',
-      time: 0.06,
-      id: uniqid() 
-  }]);
+    const [scores, setScores] = useState([]);
+
 
     // set background only when game object has been set.
     useEffect(() => {
       if(game.name === undefined) return;
+      fetchLeaderboard();
+
       setBackground(game);
       setShowGame(true);
-    })
+    }, [])
+
+    const fetchLeaderboard = async () => await retrieveScores()
+      .then(res => setScores(res));
 
     //Save characters to database when game is rendered. 
     useEffect(() => {
       if(showGame === false) return;
       background.characters.map((char) => saveCharacters(char));
-  
+      retrieveScores();
     }, [showGame])
 
     // Cursor movement
@@ -147,9 +141,14 @@ function SetGame(props) {
       setShowLeaderboard(true);
     }, [scores])
 
+    useEffect(() => {
+      if(scores.length === 3) return;
+      scores.map((score) => saveScores(score));
+    }, [scores])
+
     // Set score input to input box value, and set time to current timer result
     const onChange = (e) => {
-      const seconds = document.querySelector('#timer').firstChild.innerHTML;
+      const seconds = document.querySelector('#timer').children[1].innerHTML;
       const milliseconds = document.querySelector('#timer').lastChild.innerHTML;
         setInput({name: e.target.value,
                   time: `${seconds}${milliseconds}`,

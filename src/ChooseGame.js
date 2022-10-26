@@ -25,7 +25,6 @@ function ChooseGame(props) {
         const chooseGame = (e) => {
             const chosenGame = games.filter(game => game.name === e.target.id);
             setGame(chosenGame[0]);
-            console.log(game);
         }
 
         gameDivs.forEach(game => game.addEventListener('click', e => chooseGame(e)))

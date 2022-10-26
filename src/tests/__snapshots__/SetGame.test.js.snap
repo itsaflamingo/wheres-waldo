@@ -24,6 +24,10 @@ exports[`Game page Renders game page 1`] = `
           </span>
           <span>
             00
+            :
+          </span>
+          <span>
+            00
           </span>
         </div>
         <button

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, setDoc, getDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, setDoc, getDoc, doc, getDocs, orderBy, query } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -44,4 +44,26 @@ async function retrieve(char) {
   }
 }
 
-export {saveCharacters, retrieve};
+async function saveScores(obj) {
+  try {
+    await setDoc(doc(db, "scores", obj.name), {
+        name: obj.name,
+        time: obj.time,
+        id: obj.id,
+      }
+    );
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+
+async function retrieveScores() {
+  const querySnapshot = await getDocs(query(collection(db, "scores"), orderBy('time')));
+  const docArr = [];
+  querySnapshot.forEach((doc) => {
+  docArr.push(doc.data());
+});
+  return docArr;
+}
+
+export {saveCharacters, retrieve, saveScores, retrieveScores};

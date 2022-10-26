@@ -35,19 +35,18 @@ describe('Game page', () => {
         expect(Yubaba).not.toBeNull();
         expect(Bowser).not.toBeNull();
     })
-    // When character is found, display message after setTimeout
-    it('Character found message displays after character is clicked', () => {
-        render(<SetGame game={game} />)
+    // it('Character found message displays after character is clicked', () => {
+    //     render(<SetGame game={game} />)
 
-        const background = screen.getByTestId('background')
-        fireEvent.mouseMove(background, { clientX: 1195, clientY: 12456 });
+    //     const background = screen.getByTestId('background')
+    //     fireEvent.mouseMove(background, { clientX: 1195, clientY: 12456 });
 
-        userEvent.click(background);
+    //     userEvent.click(background);
 
-        const HK = screen.queryByText(/Hollow Knight/i);
-        userEvent.click(HK);
-        const msg = screen.queryByText(/You found Hollow Knight!/i);
-        expect(msg).not.toBeNull();
-    })
+    //     const HK = screen.queryByText(/Hollow Knight/i);
+    //     userEvent.click(HK);
+    //     const msg = screen.queryByText(/You found Hollow Knight!/i);
+    //     expect(msg).not.toBeNull();
+    // })
     // Timer updates every second
 })
