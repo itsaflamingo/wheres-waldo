@@ -1,0 +1,60 @@
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";  // optional
+import {BrowserRouter as Router} from 'react-router-dom';
+import ChooseGame from '../ChooseGame'
+import ChooseGameDiv from '../components/ChooseGameDiv';
+import MakeBackgrounds from '../components/Backgrounds'
+import { act } from "react-dom/test-utils";
+
+describe('Choose game component', () => {
+
+    const games = MakeBackgrounds(); 
+    const setGame = jest.fn();
+    const game={};    
+
+    it('Renders headings correctly', () => {
+
+        render(
+            <Router>
+                <ChooseGame game={game} setGame={setGame} />
+            </Router>
+        )
+
+        expect(screen.getAllByRole('heading')[0].textContent).toMatch('A.D.2222')
+        expect(screen.getAllByRole('heading')[1].textContent).toMatch('Robot City')
+        expect(screen.getAllByRole('heading')[2].textContent).toMatch('Universe 113')
+    })
+    it('Renders images correctly', () => {
+        render(<ChooseGameDiv games={games} />)
+
+        expect(screen.getAllByTestId('background')[0]).toHaveStyle(`background-image: url(${games[0].image})`)
+        expect(screen.getAllByTestId('background')[1]).toHaveStyle(`background-image: url(${games[1].image})`)
+        expect(screen.getAllByTestId('background')[2]).toHaveStyle(`background-image: url(${games[2].image})`)
+
+        expect(screen.getAllByTestId('character')[0]).toHaveStyle(`background-image: url(${games[0].characters[0].image})`)
+        expect(screen.getAllByTestId('character')[1]).toHaveStyle(`background-image: url(${games[0].characters[1].image})`)
+        expect(screen.getAllByTestId('character')[2]).toHaveStyle(`background-image: url(${games[0].characters[2].image})`)
+
+        expect(screen.getAllByTestId('character')[3]).toHaveStyle(`background-image: url(${games[1].characters[0].image})`)
+        expect(screen.getAllByTestId('character')[4]).toHaveStyle(`background-image: url(${games[1].characters[1].image})`)
+        expect(screen.getAllByTestId('character')[5]).toHaveStyle(`background-image: url(${games[1].characters[2].image})`)
+
+        expect(screen.getAllByTestId('character')[6]).toHaveStyle(`background-image: url(${games[2].characters[0].image})`)
+        expect(screen.getAllByTestId('character')[7]).toHaveStyle(`background-image: url(${games[2].characters[1].image})`)
+        expect(screen.getAllByTestId('character')[8]).toHaveStyle(`background-image: url(${games[2].characters[2].image})`)
+    })
+
+    it('When clicked, button navigates to new page', () => {
+        render(
+            <Router>
+                <ChooseGame game={game} setGame={setGame} />
+            </Router>)
+
+        const button = screen.getByRole('button', {name: 'Start'});
+        act(() => {
+            button.dispatchEvent(new MouseEvent('click', {bubbles: true}))
+        });
+        expect(window.location.pathname).toEqual('/play');
+    })
+})

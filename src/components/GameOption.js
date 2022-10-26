@@ -8,7 +8,8 @@ export default function GameOption(props) {
         <div className="game-container">
                         <h2 className="title">{game.name}</h2>
                     <div className="content">
-                        <div className="background" style={{
+                        <div className="background"
+                        data-testid="background" style={{
                                 backgroundImage: `url(${game.image})`,
                                 backgroundSize: 'cover',
                                 backgroundRepeat: 'no-repeat'

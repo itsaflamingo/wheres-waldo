@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Game page Renders game page 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <div
+      id="cursor"
+    />
+    <div
+      data-testid="background"
+      id="background"
+    >
+      <div
+        id="header"
+      >
+        <div
+          id="timer"
+        >
+          <span>
+            00
+            :
+          </span>
+          <span>
+            00
+          </span>
+        </div>
+        <button
+          id="show-leaderboard"
+        >
+          Leaderboard
+        </button>
+      </div>
+      <img
+        alt="puzzle"
+        src="img1.jpg"
+      />
+    </div>
+  </div>
+</div>
+`;

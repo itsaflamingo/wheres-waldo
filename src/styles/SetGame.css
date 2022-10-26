@@ -39,11 +39,11 @@ body {
     border-bottom: 1px solid grey;
 }
 [id='Robot City'] {
-    height: 2.5%;
+    height: 4.5%;
     width: 10%;
 }
 [id='Universe 113'] {
-    height: 4%;
+    height: 6%;
     width: 10%;
 }
 [id='A.D.2222'] {
@@ -265,7 +265,7 @@ button[type=submit] {
 }
 .char-img {
     width: 25%;
-    height: 60%;
+    height: 80%;
 }
 .name {
     display: flex;

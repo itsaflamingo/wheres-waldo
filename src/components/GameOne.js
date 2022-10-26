@@ -22,6 +22,7 @@ function GameOne(props) {
     return (
         <div 
         id='background' 
+        data-testid='background'
         onMouseMove={(e) => handleMouseMove(e)}
         onClick={toggleDisplay}>
             <Header 

@@ -9,7 +9,8 @@ export default function GameOptionCharacters(props) {
             {chars.map((char) => {
                 return (
                 <div className="character-div" key={char.id}>
-                        <div className="character" style={{
+                        <div className="character"
+                        data-testid="character" style={{
                         backgroundImage: `url(${char.image})`,
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat'
