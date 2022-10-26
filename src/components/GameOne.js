@@ -16,7 +16,6 @@ function GameOne(props) {
         e.stopPropagation();
         e.preventDefault();
         setScores(scores.concat(input));
-        console.log(input);
       }
 
     return (

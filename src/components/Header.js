@@ -9,7 +9,7 @@ export default function Header(props) {
 
     return(
         <div id='header'>
-                <Timer showInput={showInput} />
+                <Timer />
                 {showLeaderboard && (<Leaderboard scores={scores} />)}
                 <button id='show-leaderboard' onClick={(e) => leaderboard(e)}>Leaderboard</button>
                 {showMessage && (<h2 id='message'>{message}</h2>)}

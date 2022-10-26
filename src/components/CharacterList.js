@@ -12,7 +12,8 @@ const CharacterList = (props) => {
                             className="character" 
                             id={char.name}
                             key={char.id}>
-                                <div className='char-img' style={{
+                                <div className='char-img'
+                                id={char.name} style={{
                                 backgroundImage: `url(${char.image})`,
                                 backgroundSize: 'contain',
                                 backgroundRepeat: 'no-repeat'

@@ -3,12 +3,13 @@ import React, {useEffect, useState} from 'react';
 import GameOne from './GameOne';
 import {saveCharacters, retrieve} from './firebaseConfig';
 import MakeCursor from './MakeCursor';
+import uniqid from "uniqid";
 
 function SetGame(props) {
 
     const {game} = props;
 
-    const [background, setBackground] = useState({})
+    const [background, setBackground] = useState({});
     const [displayCharacters, setDisplayCharacters] = useState(false);
     const [pointer, setPointer] = useState({});
     const [charactersFound, setCharactersFound] = useState([]);
@@ -21,26 +22,28 @@ function SetGame(props) {
     const [scores, setScores] = useState([{
       name: 'lisa',
       time: 0.04,
-      id: 1 
+      id: uniqid() 
     }, {
       name: 'cookie',
       time: 0.06,
-      id: 2
+      id: uniqid()
     },{
       name: 'toki',
       time: 0.06,
-      id: 3 
+      id: uniqid() 
   }]);
 
+    // set background only when game object has been set.
     useEffect(() => {
       if(game.name === undefined) return;
       setBackground(game);
       setShowGame(true);
     })
 
+    //Save characters to database when game is rendered. 
     useEffect(() => {
       if(showGame === false) return;
-      background.characters.map((char) => saveCharacters(char))
+      background.characters.map((char) => saveCharacters(char));
   
     }, [showGame])
 
@@ -65,7 +68,7 @@ function SetGame(props) {
     useEffect(() => {
       if(background.image === undefined || showInput === true) return;
       const charDiv = document.querySelector('.character-options');
-      // const backG = document.querySelector('#background');
+      // Div appears where click event happens on page
       const setDivPosition = (e) => {
 
         e.stopPropagation();
@@ -78,12 +81,11 @@ function SetGame(props) {
         charDiv.style.left = x + 'px';
       }
 
+      // If character clicked, send to checkIfCharacter
       const getChosenCharacter = async (e) => {
         const id = e.target.id;
         const chosenCharacter = background.characters.filter(char => char.name === id);
-
         const dbChar = await retrieve(chosenCharacter[0].name);
-        console.log(dbChar);
         checkIfCharacter(dbChar, id);
       }
 
@@ -98,13 +100,16 @@ function SetGame(props) {
       }
     }, [displayCharacters])
 
+    // if coordinate selected matches character location, show message for a brief period of time. 
     useEffect(() => {
       if(charactersFound[charactersFound.length-1] === undefined) return;
       setMessage(() => `You found ${charactersFound[charactersFound.length-1]}!`)
       setShowMessage(true);
+
       setTimeout(() => {
         setShowMessage(false);
       }, 1500);
+
       if(charactersFound.length === 3) setShowInput(true);
 
     }, [charactersFound])
@@ -118,26 +123,21 @@ function SetGame(props) {
           y: e.pageY - e.target.offsetTop
       })
   }
-
+    // Check if selected location corresponds to saved character location
     const checkIfCharacter = (obj, name) => {
       const location = obj[name].location;
-
-      console.log((pointer.x + 120) > location.x,
-      (pointer.x - 120) < location.x, 
-      (pointer.y + 120) > location.y,
-      (pointer.y - 120) < location.y)
 
       if(((pointer.x + 120) > location.x &&
           (pointer.x - 120) < location.x) && 
           (pointer.y + 120) > location.y &&
           (pointer.y - 120) < location.y) {
         checkIfFound(name);
-        console.log(`You found ${name}!`)
       }
     }
 
+    // Cross-reference with characters already found. If already found, do nothing, else add to charactersFound
     const checkIfFound = (name) => {
-      if(charactersFound.includes(name));
+      if(charactersFound.includes(name)) return;
       setCharactersFound(() => charactersFound.concat(name));
     }
 
@@ -147,12 +147,13 @@ function SetGame(props) {
       setShowLeaderboard(true);
     }, [scores])
 
-  const onChange = (e) => {
-    const seconds = document.querySelector('#timer').firstChild.innerHTML;
-    const milliseconds = document.querySelector('#timer').lastChild.innerHTML;
-      setInput({name: e.target.value,
-                time: `${seconds}${milliseconds}`,
-                id: 4});
+    // Set score input to input box value, and set time to current timer result
+    const onChange = (e) => {
+      const seconds = document.querySelector('#timer').firstChild.innerHTML;
+      const milliseconds = document.querySelector('#timer').lastChild.innerHTML;
+        setInput({name: e.target.value,
+                  time: `${seconds}${milliseconds}`,
+                  id: uniqid()});
     }
 
   return (
