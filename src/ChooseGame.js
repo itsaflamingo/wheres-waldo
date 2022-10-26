@@ -12,10 +12,13 @@ function ChooseGame(props) {
     const [showGame, setShowGame] = useState(false);
     const [games, setGames] = useState(MakeBackgrounds());
 
-    const startGame = () => setShowGame(true);
+    const startGame = () => {
+        if(game.name === undefined || game.name === null) return;
+        setShowGame(true)
+    };
 
     useEffect(() => {
-        if(showGame === false) return;
+        if(showGame === false || game === undefined || game === null) return;
         navToGame();
     }, [showGame])
 
