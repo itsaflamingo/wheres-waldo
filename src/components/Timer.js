@@ -15,7 +15,7 @@ export default function Timer() {
     }, []);
 
     return(
-        <div id='timer'>
+        <div id='timer' data-testid='timer'>
             <span>{('0'+ Math.floor((timer/3600) % 60)).slice(-2)}:</span>
             <span>{('0'+ Math.floor((timer/60) % 60)).slice(-2)}:</span>
             <span>{('0'+ Math.floor((timer) % 60)).slice(-2)}</span>

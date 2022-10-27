@@ -16,6 +16,7 @@ exports[`Game page Renders game page 1`] = `
         id="header"
       >
         <div
+          data-testid="timer"
           id="timer"
         >
           <span>

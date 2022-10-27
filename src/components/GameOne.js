@@ -4,7 +4,7 @@ import CharacterList from "./CharacterList";
 import Header from "./Header";
 
 function GameOne(props) {
-    const {background, handleMouseMove, displayCharacters, timer, message, showInput, showLeaderboard, setShowLeaderboard, scores, showMessage, onChange, input, toggleDisplay, setScores, setTimer} = props;
+    const {background, handleMouseMove, displayCharacters, timer, message, showInput, setShowInput, showLeaderboard, setShowLeaderboard, scores, showMessage, onChange, input, toggleDisplay, setScores, setTimer, endGame} = props;
 
     const leaderboard = (e) => {
         e.stopPropagation();
@@ -35,7 +35,9 @@ function GameOne(props) {
             message={message}
             onChange={onChange}
             onFormSubmit={onFormSubmit}
-            input={input} />
+            input={input} 
+            setShowInput={setShowInput} 
+            endGame={endGame} />
             <img src={background.image} alt='puzzle' />
             {displayCharacters && (<CharacterList characters={background.characters} game={background.name} />)}
         </div>

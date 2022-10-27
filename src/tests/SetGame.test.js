@@ -1,27 +1,36 @@
 import React from "react";
-import { render, screen, fireEvent, createEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";  // optional
 import userEvent from "@testing-library/user-event";
 import {BrowserRouter as Router} from 'react-router-dom';
-import ChooseGame from '../ChooseGame'
 import SetGame from '../components/SetGame';
 import MakeBackgrounds from '../components/Backgrounds'
+import Timer from '../components/Timer'
 import { act } from "react-dom/test-utils";
 
 describe('Game page', () => {
     const games = MakeBackgrounds();
-    const game = games[0]
+    const game = games[0];
+    jest.useFakeTimers();
+
     it('Renders game page', () => {
-        const {container} = render(<SetGame game={game} />)
+        const {container} = render(
+            <Router>
+                <SetGame game={game} />
+            </Router>)
         expect(container).toMatchSnapshot();
     })
     it('Background must have src attribute with correct image', () => {
-        render(<SetGame game={game} />)
+        render( <Router>
+                    <SetGame game={game} />
+                </Router>)
     
         expect(screen.getByRole('img')).toHaveAttribute('src', `${game.image}`)
     })
     it('When clicked, displays character list', () => {
-        render(<SetGame game={game} />)
+        render( <Router>
+                    <SetGame game={game} />
+                </Router>)
 
         const background = screen.getByTestId('background')
         
@@ -35,18 +44,58 @@ describe('Game page', () => {
         expect(Yubaba).not.toBeNull();
         expect(Bowser).not.toBeNull();
     })
-    // it('Character found message displays after character is clicked', () => {
-    //     render(<SetGame game={game} />)
+    it('Leaderboard button is displayed when clicked once', () => {
+        render( <Router>
+                    <SetGame game={game} />
+                </Router>)
 
-    //     const background = screen.getByTestId('background')
-    //     fireEvent.mouseMove(background, { clientX: 1195, clientY: 12456 });
+        const btn = screen.getByRole('button', {name: 'Leaderboard'});
 
-    //     userEvent.click(background);
+        userEvent.click(btn);
+        const leaderboard = screen.queryByText(/Score/i);
 
-    //     const HK = screen.queryByText(/Hollow Knight/i);
-    //     userEvent.click(HK);
-    //     const msg = screen.queryByText(/You found Hollow Knight!/i);
-    //     expect(msg).not.toBeNull();
-    // })
-    // Timer updates every second
+        expect(btn).not.toBeNull();
+        expect(leaderboard).not.toBeNull();
+    })
+    it('Leaderboard button is not displayed when clicked twice', () => {
+        render( <Router>
+            <SetGame game={game} />
+        </Router>)
+
+        const btn = screen.getByRole('button', {name: 'Leaderboard'});
+
+        userEvent.click(btn)
+        userEvent.click(btn)
+
+        const leaderboard = screen.queryByText(/Score/i);
+        expect(leaderboard).toBeNull();
+    })
+    it('Timer renders correctly', () => {
+        render( <Router>
+            <SetGame game={game} />
+        </Router>)
+
+        
+    })
+    it('Timer updates correctly for minutes & seconds', () => {
+        render(<Timer />)
+
+        jest.useFakeTimers();
+        act(() => {
+            jest.advanceTimersByTime(3000);
+        })
+        const timer = screen.getByTestId('timer');
+        expect(timer.textContent).toBe('00:00:03');
+
+        act(() => {
+            jest.advanceTimersByTime(10000);
+        })
+        expect(timer.textContent).toBe('00:00:13');
+
+        act(() => {
+            jest.advanceTimersByTime(50000);
+        })
+
+        expect(timer.textContent).toBe('00:01:03');
+    })
 })

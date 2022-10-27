@@ -39,14 +39,20 @@ body {
     border-bottom: 1px solid grey;
 }
 [id='Robot City'] {
+    grid-column-start: 2;
+    grid-column-end: 3;
     height: 4.5%;
     width: 10%;
 }
 [id='Universe 113'] {
+    grid-column-start: 3;
+    grid-column-end: 4;
     height: 6%;
     width: 10%;
 }
 [id='A.D.2222'] {
+    grid-column-start: 1;
+    grid-column-end: 2;
     z-index: 10;
     height: 1.4%;
     width: 12%;
@@ -130,9 +136,9 @@ body {
 #enter-name {
     position: fixed;
     top: 45%;
-    left: 45%;
+    left: 35%;
     background-color: white;
-    height: 15%;
+    height: 16%;
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -142,14 +148,37 @@ body {
     z-index: 100;
     cursor: auto;
 }
-button[type=submit] {
+#buttons {
+    display: flex;
+    gap: 1%;
+    width: 50%;
+}
+button[type=submit], #cancel-submit{
     margin-top: 5%;
     border: none;
     height: 35%;
-    width: 35%;
+    min-height: 30px;
+    width: 100%;
     background-color: var(--yellow);
-    border-radius: 20px;
     font-weight: 900;
+}
+button[type=submit] {
+    border-radius: 20px 0 0 20px;
+}
+#cancel-submit {
+    border-radius: 0 20px 20px 0;
+}
+form {
+    display: flex;
+    justify-content: center;
+}
+#input {
+    border-radius: 20px;
+    border: 1px solid grey;
+    margin: 10px 0px;
+    height: 60%;
+    width: 100%;
+    max-width: 90%;
 }
 /* CURSOR */
 #cursor {
@@ -187,7 +216,8 @@ button[type=submit] {
     justify-content: center;
 }
 #start {
-    height: 70%;
+    height: 100%;
+    min-height: 50px;
     width: 10%;
     border-radius: 10px;
     border: none;
@@ -196,7 +226,7 @@ button[type=submit] {
     font-weight: 900;
     margin-bottom: 3%;
 }
-#start:hover, #show-leaderboard:hover, button[type=submit]:hover {
+#start:hover, #show-leaderboard:hover, button[type=submit]:hover, #cancel-submit:hover, #play-again:hover {
     box-shadow: var(--box-shadow);
     background-color: rgb(3, 126, 208);
     color: rgb(251, 228, 183);
@@ -204,15 +234,16 @@ button[type=submit] {
 #choose-game {
     height: 100%;
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 33%));
     align-items: center;
     justify-content: center;
-    gap: 0.5%;
 }
 .game {
     display: flex;
     width: 90%;
     height: 85%;
+    min-height: 360px;
     background-color: white;
     align-items: center;
     justify-content: center;
@@ -272,4 +303,32 @@ button[type=submit] {
     align-items: center;
     justify-content: center;
     height: 55%;
+}
+#end-game {
+    position: fixed;
+    top: 45%;
+    left: 40%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    height: 17%;
+    width: 25%;
+    text-align: center;
+}
+#end-game h4 {
+    margin: 5%;
+}
+#play-again {
+    width: 40%;
+    height: 25%;
+    min-height: 40px;
+    min-width: 75px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--yellow);
+    font-size: 1rem;
+    font-weight: 900;
 }

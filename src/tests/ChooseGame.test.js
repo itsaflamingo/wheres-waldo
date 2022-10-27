@@ -6,12 +6,13 @@ import ChooseGame from '../ChooseGame'
 import ChooseGameDiv from '../components/ChooseGameDiv';
 import MakeBackgrounds from '../components/Backgrounds'
 import { act } from "react-dom/test-utils";
+import userEvent from "@testing-library/user-event";
 
 describe('Choose game component', () => {
 
     const games = MakeBackgrounds(); 
     const setGame = jest.fn();
-    const game={};    
+    const game=games[0];    
 
     it('Renders headings correctly', () => {
 
@@ -52,7 +53,10 @@ describe('Choose game component', () => {
             </Router>)
 
         const button = screen.getByRole('button', {name: 'Start'});
+        const chosenGame = screen.getByText(/Robot City/i);
+
         act(() => {
+            userEvent.click(chosenGame);
             button.dispatchEvent(new MouseEvent('click', {bubbles: true}))
         });
         expect(window.location.pathname).toEqual('/play');
