@@ -1,12 +1,14 @@
 import '../styles/SetGame.css';
 import React, {useEffect, useState} from 'react';
 import GameOne from './GameOne';
-import {saveCharacters, retrieve, saveScores, retrieveScores} from './firebaseConfig';
+import {saveCharacters, saveScores, retrieveScores} from './firebaseConfig';
 import MakeCursor from './MakeCursor';
 import uniqid from "uniqid";
 import EndGame from './EndGame';
 import { useNavigate } from "react-router-dom";
-
+import checkIfFound from './confirmCharacterFound';
+import {getChosenCharacter} from './getChosenCharacter';
+import {setDivPosition} from './setDivPosition';
 
 function SetGame(props) {
 
@@ -66,35 +68,17 @@ function SetGame(props) {
     useEffect(() => {
       if(background.image === undefined || showInput === true) return;
       const charDiv = document.querySelector('.character-options');
-      // Div appears where click event happens on page
-      const setDivPosition = (e) => {
 
-        e.stopPropagation();
+      document.addEventListener('click', e => setDivPosition(e, displayCharacters, charDiv));
 
-        if(displayCharacters === false) return;
-        const x = e.pageX;
-        const y = e.pageY;
-        
-        charDiv.style.top = y + 'px';
-        charDiv.style.left = x + 'px';
-      }
+      if(charDiv === null) return() => {document.removeEventListener('click', e => setDivPosition(e, displayCharacters, charDiv))}
 
-      // If character clicked, send to checkIfCharacter
-      const getChosenCharacter = async (e) => {
-        const id = e.target.id;
-        const chosenCharacter = background.characters.filter(char => char.name === id);
-        const dbChar = await retrieve(chosenCharacter[0].name);
-        checkIfCharacter(dbChar, id);
-      }
-
-      document.addEventListener('click', e => setDivPosition(e));
-      if(charDiv === null) return() => {document.removeEventListener('click', e => setDivPosition(e))}
-      charDiv.addEventListener('click', e => getChosenCharacter(e));
+      charDiv.addEventListener('click', e => getChosenCharacter(e, background, pointer, checkIfFound, charactersFound, setCharactersFound));
 
       return()=> {
         if (charactersFound.length < 3) return;
-        document.removeEventListener('click', e => setDivPosition(e));
-        charDiv.removeEventListener('click', e => getChosenCharacter(e));
+        document.removeEventListener('click', e => setDivPosition(e, displayCharacters, charDiv));
+        charDiv.removeEventListener('click', e => getChosenCharacter(e, background, pointer, checkIfFound, charactersFound, setCharactersFound));
       }
     }, [displayCharacters])
 
@@ -121,23 +105,6 @@ function SetGame(props) {
           y: e.pageY - e.target.offsetTop
       })
   }
-    // Check if selected location corresponds to saved character location
-    const checkIfCharacter = (obj, name) => {
-      const location = obj[name].location;
-
-      if(((pointer.x + 120) > location.x &&
-          (pointer.x - 120) < location.x) && 
-          (pointer.y + 120) > location.y &&
-          (pointer.y - 120) < location.y) {
-        checkIfFound(name);
-      }
-    }
-
-    // Cross-reference with characters already found. If already found, do nothing, else add to charactersFound
-    const checkIfFound = (name) => {
-      if(charactersFound.includes(name)) return;
-      setCharactersFound(() => charactersFound.concat(name));
-    }
 
     useEffect(() => {
       if(scores.length === 3) return;

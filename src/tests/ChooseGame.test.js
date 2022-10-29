@@ -13,7 +13,14 @@ describe('Choose game component', () => {
     const games = MakeBackgrounds(); 
     const setGame = jest.fn();
     const game=games[0];    
-
+    it('Renders', () => {
+        const {container} = render(
+            <Router>
+                <ChooseGame game={game} setGame={setGame} />
+            </Router>
+        )
+        expect(container).toMatchSnapshot();
+    })
     it('Renders headings correctly', () => {
 
         render(

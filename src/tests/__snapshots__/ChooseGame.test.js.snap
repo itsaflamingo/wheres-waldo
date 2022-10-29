@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Choose game component Renders 1`] = `
+<div>
+  <div
+    id="page"
+  >
+    <div
+      id="choose-game"
+    >
+      <div
+        class="game"
+        id="A.D.2222"
+      >
+        <div
+          class="game-container"
+        >
+          <h2
+            class="title"
+          >
+            A.D.2222
+          </h2>
+          <div
+            class="content"
+          >
+            <div
+              class="background"
+              data-testid="background"
+              style="background-image: url(img1.jpg); background-size: cover; background-repeat: no-repeat;"
+            />
+            <div
+              class="characters"
+            >
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(hollow-knight.webp); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Hollow Knight
+                </div>
+              </div>
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(yubaba.png); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Yubaba
+                </div>
+              </div>
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(bowser.png); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Bowser
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="game"
+        id="Robot City"
+      >
+        <div
+          class="game-container"
+        >
+          <h2
+            class="title"
+          >
+            Robot City
+          </h2>
+          <div
+            class="content"
+          >
+            <div
+              class="background"
+              data-testid="background"
+              style="background-image: url(robotcity.jpg); background-size: cover; background-repeat: no-repeat;"
+            />
+            <div
+              class="characters"
+            >
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(meg.webp); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Meg
+                </div>
+              </div>
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(goku.webp); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Goku
+                </div>
+              </div>
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(beast-titan.png); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Beast Titan
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="game"
+        id="Universe 113"
+      >
+        <div
+          class="game-container"
+        >
+          <h2
+            class="title"
+          >
+            Universe 113
+          </h2>
+          <div
+            class="content"
+          >
+            <div
+              class="background"
+              data-testid="background"
+              style="background-image: url(img2.jpg); background-size: cover; background-repeat: no-repeat;"
+            />
+            <div
+              class="characters"
+            >
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(stewie.png); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Stewie
+                </div>
+              </div>
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(bender.png); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Bender
+                </div>
+              </div>
+              <div
+                class="character-div"
+              >
+                <div
+                  class="character"
+                  data-testid="character"
+                  style="background-image: url(totoro.png); background-size: contain; background-repeat: no-repeat;"
+                />
+                <div
+                  class="name"
+                >
+                  Totoro
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="start-btn"
+    >
+      <button
+        id="start"
+      >
+        Start
+      </button>
+    </div>
+  </div>
+</div>
+`;

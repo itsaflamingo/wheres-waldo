@@ -32,7 +32,7 @@ describe('Game page', () => {
                     <SetGame game={game} />
                 </Router>)
 
-        const background = screen.getByTestId('background')
+        const background = screen.getByTestId('background');
         
         userEvent.click(background);
 
