@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/wheres-waldo/static/css/main.11bd3c08.css",
+    "main.js": "/wheres-waldo/static/js/main.05653446.js",
+    "static/media/img1.jpg": "/wheres-waldo/static/media/img1.8f2e34b8a34317f86f08.jpg",
+    "static/media/img2.jpg": "/wheres-waldo/static/media/img2.0d4fe7c106039f77baa0.jpg",
+    "static/media/robotcity.jpg": "/wheres-waldo/static/media/robotcity.055b39f0ce4f0de270b4.jpg",
+    "static/media/bender.png": "/wheres-waldo/static/media/bender.7c9aaf2601af7c1a3400.png",
+    "static/media/totoro.png": "/wheres-waldo/static/media/totoro.9a74263aeb675b1af899.png",
+    "static/media/yubaba.png": "/wheres-waldo/static/media/yubaba.124d78907c3fe76760bc.png",
+    "static/media/beast-titan.png": "/wheres-waldo/static/media/beast-titan.84eec06bd0794643d6ec.png",
+    "static/media/bowser.png": "/wheres-waldo/static/media/bowser.79c5eb2bbc827836b9d7.png",
+    "static/media/goku.webp": "/wheres-waldo/static/media/goku.80332e001f3fee26bf95.webp",
+    "static/media/stewie.png": "/wheres-waldo/static/media/stewie.4a2d9b13dec2fed6cee9.png",
+    "static/media/hollow-knight.webp": "/wheres-waldo/static/media/hollow-knight.b0014b3db7961de88c65.webp",
+    "static/media/meg.webp": "/wheres-waldo/static/media/meg.2d2c68d02d80a99f55ad.webp",
+    "index.html": "/wheres-waldo/index.html",
+    "main.11bd3c08.css.map": "/wheres-waldo/static/css/main.11bd3c08.css.map",
+    "main.05653446.js.map": "/wheres-waldo/static/js/main.05653446.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11bd3c08.css",
+    "static/js/main.05653446.js"
+  ]
+}
