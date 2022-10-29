@@ -7,7 +7,7 @@ const RouteSwitch = () => {
     const [game, setGame] = useState({});
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={'/'}>
       <Routes>
         <Route path="/" 
             element={<ChooseGame 
