@@ -16,6 +16,7 @@ function GameOne(props) {
         e.stopPropagation();
         e.preventDefault();
         setScores(scores.concat(input));
+        endGame(!endGame);
       }
 
     return (
@@ -37,7 +38,7 @@ function GameOne(props) {
             onFormSubmit={onFormSubmit}
             input={input} 
             setShowInput={setShowInput} 
-            endGame={endGame} />
+            endGame={endGame}/>
             <img src={background.image} alt='puzzle' />
             {displayCharacters && (<CharacterList characters={background.characters} game={background.name} />)}
         </div>
