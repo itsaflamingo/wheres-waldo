@@ -7,7 +7,6 @@ const checkIfCharacter = (obj, name, pointer, checkIfFound, charactersFound, set
         (pointer.y + 120) > location.y &&
         (pointer.y - 120) < location.y) {
       checkIfFound(charactersFound, setCharactersFound, name);
-      return true;
     }
     else {
         return null;
