@@ -1,9 +1,8 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";  // optional
 import {BrowserRouter as Router} from 'react-router-dom';
 import ChooseGame from '../ChooseGame'
-import ChooseGameDiv from '../components/ChooseGameDiv';
+import GameOptions from '../components/GameOptions';
 import MakeBackgrounds from '../components/Backgrounds'
 import { act } from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
@@ -34,7 +33,7 @@ describe('Choose game component', () => {
         expect(screen.getAllByRole('heading')[2].textContent).toMatch('Universe 113')
     })
     it('Renders images correctly', () => {
-        render(<ChooseGameDiv games={games} />)
+        render(<GameOptions games={games} />)
 
         expect(screen.getAllByTestId('background')[0]).toHaveStyle(`background-image: url(${games[0].image})`)
         expect(screen.getAllByTestId('background')[1]).toHaveStyle(`background-image: url(${games[1].image})`)

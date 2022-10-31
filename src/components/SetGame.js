@@ -156,21 +156,21 @@ function SetGame(props) {
     <div className="App">
       <MakeCursor />
       {showGame && (<GameOne 
-                    background={background} 
-                    displayCharacters={displayCharacters}
-                    toggleDisplay={toggleDisplay}
-                    handleMouseMove={handleMouseMove}
-                    message={message} 
-                    showInput={showInput}
-                    setShowInput={setShowInput} 
-                    showLeaderboard={showLeaderboard} 
-                    setShowLeaderboard={setShowLeaderboard} 
-                    scores={scores}
-                    setScores={setScores} 
-                    showMessage={showMessage}
-                    onChange={onChange} 
-                    input={input} 
-                    endGame={setEndGame} /> )}
+                        background={background} 
+                        displayCharacters={displayCharacters}
+                        toggleDisplay={toggleDisplay}
+                        handleMouseMove={handleMouseMove}
+                        message={message} 
+                        showInput={showInput}
+                        setShowInput={setShowInput} 
+                        showLeaderboard={showLeaderboard} 
+                        setShowLeaderboard={setShowLeaderboard} 
+                        scores={scores}
+                        setScores={setScores} 
+                        showMessage={showMessage}
+                        onChange={onChange} 
+                        input={input} 
+                        endGame={setEndGame} /> )}
         {!endGame && (<EndGame playAgain={playAgain} />)}
     </div>
   );

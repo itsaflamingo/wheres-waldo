@@ -6,6 +6,15 @@ exports[`Choose game component Renders 1`] = `
     id="page"
   >
     <div
+      id="info-container"
+    >
+      <button
+        id="show-info"
+      >
+        Information
+      </button>
+    </div>
+    <div
       id="choose-game"
     >
       <div

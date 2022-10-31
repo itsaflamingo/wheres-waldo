@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import EnhancedBackground from "./EnhancedBackground";
 import CharacterList from "./CharacterList";
 import Header from "./Header";
-import sortScores from './sortScores'
+import hasSwearWords from "./hasSwearWords";
 
 function GameOne(props) {
     const { background, 
@@ -22,16 +22,19 @@ function GameOne(props) {
             setScores, 
             setTimer, 
             endGame } = props;
+        const [inputError, setInputError] = useState('');
 
     const leaderboard = (e) => {
         e.stopPropagation();
-        e.nativeEvent.stopImmediatePropagation();
         setShowLeaderboard(!showLeaderboard);
     }
 
     const onFormSubmit = (e) => {
+        if(hasSwearWords(input.name, setInputError) === true) return;
+
         e.stopPropagation();
         e.preventDefault();
+
         setScores(scores.concat(input));
         endGame(!endGame);
       }
@@ -55,7 +58,8 @@ function GameOne(props) {
             onFormSubmit={onFormSubmit}
             input={input} 
             setShowInput={setShowInput} 
-            endGame={endGame}/>
+            endGame={endGame}
+            inputError={inputError} />
             <img src={background.image} alt='puzzle' />
             {displayCharacters && (<CharacterList characters={background.characters} game={background.name} />)}
         </div>

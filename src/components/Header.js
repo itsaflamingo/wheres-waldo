@@ -5,7 +5,18 @@ import Timer from './Timer'
 
 export default function Header(props) {
 
-    const {showLeaderboard, scores, leaderboard, showMessage, message, showInput, onChange, onFormSubmit, input, setShowInput, endGame} = props;
+    const { showLeaderboard, 
+            scores, 
+            leaderboard, 
+            showMessage, 
+            message, 
+            showInput, 
+            onChange, 
+            onFormSubmit, 
+            input, 
+            setShowInput, 
+            endGame, 
+            inputError } = props;
 
     return(
         <div id='header'>
@@ -15,10 +26,11 @@ export default function Header(props) {
                 {showMessage && (<h2 id='message'>{message}</h2>)}
                 {showInput && 
                 (<NameInput onChange={onChange} 
-                onFormSubmit={onFormSubmit} 
-                input={input} 
-                setShowInput={setShowInput} 
-                endGame={endGame} />)}
+                            onFormSubmit={onFormSubmit} 
+                            input={input} 
+                            setShowInput={setShowInput} 
+                            endGame={endGame} 
+                            inputError={inputError} />)}
             </div>
     )
 }

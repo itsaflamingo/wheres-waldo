@@ -4,6 +4,7 @@ import GameOptionCharacters from "./GameOptionCharacters";
 export default function GameOption(props) {
 
     const {game} = props;
+    
     return (
         <div className="game-container">
                         <h2 className="title">{game.name}</h2>

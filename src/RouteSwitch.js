@@ -10,12 +10,12 @@ const RouteSwitch = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" 
-            element={<ChooseGame 
-            game={game}
-            setGame={setGame} />} />
+                element={<ChooseGame 
+                game={game}
+                setGame={setGame} />} />
         <Route path="/play" 
-            element={<SetGame 
-            game={game} />} />
+                element={<SetGame 
+                game={game} />} />
       </Routes>
     </BrowserRouter>
   );

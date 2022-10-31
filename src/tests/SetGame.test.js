@@ -52,6 +52,7 @@ describe('Game page', () => {
         const btn = screen.getByRole('button', {name: 'Leaderboard'});
 
         userEvent.click(btn);
+        userEvent.click(btn);
         const leaderboard = screen.queryByText(/Score/i);
 
         expect(btn).not.toBeNull();
@@ -66,6 +67,7 @@ describe('Game page', () => {
 
         userEvent.click(btn)
         userEvent.click(btn)
+        userEvent.click(btn);
 
         const leaderboard = screen.queryByText(/Score/i);
         expect(leaderboard).toBeNull();

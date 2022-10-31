@@ -1,16 +1,20 @@
-import React from "react"
-
 function NameInput(props) {
 
-    const {onChange, onFormSubmit, input, setShowInput, endGame} = props;
+    const { onChange, 
+            onFormSubmit, 
+            input, 
+            setShowInput, 
+            endGame, 
+            inputError } = props;
 
     const cancel = () => {
-        setShowInput(false)
+        setShowInput(false);
         endGame(!endGame);
     }
-    
+
     return(
         <div id='enter-name'>
+            <div id='input-error'>{inputError}</div>
             Enter your name: 
             <form>
                 <input type='text'

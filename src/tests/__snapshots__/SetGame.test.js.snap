@@ -31,6 +31,20 @@ exports[`Game page Renders game page 1`] = `
             00
           </span>
         </div>
+        <div
+          id="leaderboard"
+        >
+          <div
+            id="title"
+          >
+            <h4>
+              Name
+            </h4>
+            <h4>
+              Score
+            </h4>
+          </div>
+        </div>
         <button
           id="show-leaderboard"
         >
