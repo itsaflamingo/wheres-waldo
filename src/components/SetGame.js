@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import checkIfFound from './confirmCharacterFound';
 import {getChosenCharacter} from './getChosenCharacter';
 import {setDivPosition} from './setDivPosition';
+import sortScores from './sortScores';
 
 function SetGame(props) {
 
@@ -71,14 +72,20 @@ function SetGame(props) {
 
       document.addEventListener('click', e => setDivPosition(e, displayCharacters, charDiv));
 
-      if(charDiv === null) return() => {document.removeEventListener('click', e => setDivPosition(e, displayCharacters, charDiv))}
+      if(charDiv === null) return() => {document.removeEventListener('click', e => 
+      setDivPosition(e, displayCharacters, charDiv))}
 
-      charDiv.addEventListener('click', e => getChosenCharacter(e, background, pointer, checkIfFound, charactersFound, setCharactersFound));
+      charDiv.addEventListener('click', e => 
+      getChosenCharacter(e, background, pointer, checkIfFound, charactersFound, setCharactersFound));
 
       return()=> {
         if (charactersFound.length < 3) return;
-        document.removeEventListener('click', e => setDivPosition(e, displayCharacters, charDiv));
-        charDiv.removeEventListener('click', e => getChosenCharacter(e, background, pointer, checkIfFound, charactersFound, setCharactersFound));
+
+        document.removeEventListener('click', e => 
+        setDivPosition(e, displayCharacters, charDiv));
+
+        charDiv.removeEventListener('click', e => 
+        getChosenCharacter(e, background, pointer, checkIfFound, charactersFound, setCharactersFound));
       }
     }, [displayCharacters])
 
@@ -107,14 +114,14 @@ function SetGame(props) {
   }
 
     useEffect(() => {
-      if(scores.length === 3) return;
       setShowInput(false);
-      setShowLeaderboard(true);
+      scores.map((score) => saveScores(score));
+      setShowLeaderboard(false);
     }, [scores])
 
     useEffect(() => {
-      if(scores.length === 3) return;
-      scores.map((score) => saveScores(score));
+      if(showInput === false) return;
+      setScores(sortScores(scores));
     }, [scores])
 
     useEffect(() => {

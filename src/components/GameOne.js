@@ -2,9 +2,26 @@ import React from "react";
 import EnhancedBackground from "./EnhancedBackground";
 import CharacterList from "./CharacterList";
 import Header from "./Header";
+import sortScores from './sortScores'
 
 function GameOne(props) {
-    const {background, handleMouseMove, displayCharacters, timer, message, showInput, setShowInput, showLeaderboard, setShowLeaderboard, scores, showMessage, onChange, input, toggleDisplay, setScores, setTimer, endGame} = props;
+    const { background, 
+            handleMouseMove, 
+            displayCharacters, 
+            timer, 
+            message, 
+            showInput, 
+            setShowInput, 
+            showLeaderboard, 
+            setShowLeaderboard, 
+            scores, 
+            showMessage, 
+            onChange, 
+            input, 
+            toggleDisplay, 
+            setScores, 
+            setTimer, 
+            endGame } = props;
 
     const leaderboard = (e) => {
         e.stopPropagation();

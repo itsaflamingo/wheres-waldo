@@ -1,7 +1,7 @@
 import React from "react";
 import GameOption from "./GameOption";
 
-function ChooseGameDiv(props) {
+function GameOptions(props) {
 
     const {games} = props;
 
@@ -21,4 +21,4 @@ function ChooseGameDiv(props) {
     )
 }
 
-export default ChooseGameDiv;
+export default GameOptions;

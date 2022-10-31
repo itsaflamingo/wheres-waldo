@@ -4,13 +4,15 @@ import './styles/SetGame.css';
 import "react-alice-carousel/lib/alice-carousel.css";
 import SetGame from "./components/SetGame.js";
 import MakeBackgrounds from "./components/Backgrounds";
-import ChooseGameDiv from "./components/ChooseGameDiv";
+import GameOptions from "./components/GameOptions";
+import Information from "./components/Information";
 
 function ChooseGame(props) {
 
     const {game, setGame} = props;
     const [showGame, setShowGame] = useState(false);
     const [games, setGames] = useState(MakeBackgrounds());
+    const [showInfo, setShowInfo] = useState(false);
 
     const startGame = () => {
         if(game.name === undefined || game.name === null) return;
@@ -44,7 +46,12 @@ function ChooseGame(props) {
 
     return(
         <div id='page'>
-                <ChooseGameDiv games={games} />
+                <div id='info-container'>
+                    <button id='show-info'
+                    onClick={() => setShowInfo(!showInfo)}>Information</button>
+                    {showInfo && <Information />}
+                </div>
+                <GameOptions games={games} />
                 <div id='start-btn'>
                     <button id='start'
                     onClick={() => startGame()}>Start</button>

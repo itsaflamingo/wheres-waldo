@@ -13,7 +13,12 @@ export default function Header(props) {
                 {!showLeaderboard && (<Leaderboard scores={scores} />)}
                 <button id='show-leaderboard' onClick={(e) => leaderboard(e)}>Leaderboard</button>
                 {showMessage && (<h2 id='message'>{message}</h2>)}
-                {showInput && (<NameInput onChange={onChange} onFormSubmit={onFormSubmit} input={input} setShowInput={setShowInput} endGame={endGame} />)}
+                {showInput && 
+                (<NameInput onChange={onChange} 
+                onFormSubmit={onFormSubmit} 
+                input={input} 
+                setShowInput={setShowInput} 
+                endGame={endGame} />)}
             </div>
     )
 }

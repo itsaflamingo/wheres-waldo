@@ -109,6 +109,8 @@ body {
     position: absolute;
     top: 100%;
     left: 40%;
+    max-height: 500%;
+    overflow: scroll;
 }
 .score {
     display: flex;
@@ -226,7 +228,12 @@ form {
     font-weight: 900;
     margin-bottom: 3%;
 }
-#start:hover, #show-leaderboard:hover, button[type=submit]:hover, #cancel-submit:hover, #play-again:hover {
+#start:hover,
+#show-leaderboard:hover, 
+button[type=submit]:hover, 
+#cancel-submit:hover, 
+#play-again:hover, 
+#show-info:hover {
     box-shadow: var(--box-shadow);
     background-color: rgb(3, 126, 208);
     color: rgb(251, 228, 183);
@@ -304,6 +311,38 @@ form {
     justify-content: center;
     height: 55%;
     font-weight: 900;
+}
+/* INFO */
+#info-container {
+    position: relative;
+    width: 100%;
+    height: 6%;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 100;
+}
+#show-info {
+    height: 100%;
+    width: 8%;
+    margin: 20px 0 0 20px;
+    background-color: var(--yellow);
+    font-weight: 900;
+    border: none;
+    border-radius: 20px;
+}
+#info {
+    background-color: black;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    border-radius: 40px;
+    padding: 1%;
+    color: white;
+    border: 1px solid white;
+}
+#info h4 {
+    display: flex;
+    justify-content: center;
 }
 /* END GAME */
 #end-game {
