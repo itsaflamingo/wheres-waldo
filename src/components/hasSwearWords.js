@@ -10,7 +10,8 @@ export default function hasSwearWords(name, setInputError) {
         LC.includes('nigger') || 
         LC.includes('nazi') || 
         LC.includes('balls') || 
-        LC.includes('suck')) {
+        LC.includes('suck') ||
+        LC.includes('penis')) {
             setInputError("Sorry, can't use that word!");
             return true;
     }

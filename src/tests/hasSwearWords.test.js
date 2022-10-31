@@ -1,9 +1,5 @@
 import hasSwearWords from "../components/hasSwearWords";
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";  // optional
-import {BrowserRouter as Router} from 'react-router-dom';
-import { act } from "react-dom/test-utils";
-import userEvent from "@testing-library/user-event";
 
 describe('hasSwearWords function', () => {
     const fn = jest.fn();
@@ -14,5 +10,17 @@ describe('hasSwearWords function', () => {
         expect(hasSwearWords('cunt', fn)).toBe(true);
         expect(hasSwearWords('asshole', fn)).toBe(true);
         expect(hasSwearWords('balls', fn)).toBe(true);
+    })
+    it('returns false if not called with swear words', () => {
+        expect(hasSwearWords('hi', fn)).toBe(false);
+        expect(hasSwearWords('this', fn)).toBe(false);
+        expect(hasSwearWords('so', fn)).toBe(false);
+        expect(hasSwearWords('funt', fn)).toBe(false);
+    })
+    it('returns true if includes swear words', () => {
+        expect(hasSwearWords('sofuck', fn)).toBe(true);
+        expect(hasSwearWords('shitthis', fn)).toBe(true);
+        expect(hasSwearWords('ballsss', fn)).toBe(true);
+        expect(hasSwearWords('cuntname', fn)).toBe(true);
     })
 })

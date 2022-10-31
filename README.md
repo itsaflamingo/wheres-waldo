@@ -1,5 +1,10 @@
 This is a Where's Waldo game created following The Odin Project guidelines. 
-The game was created using Firebase, React, JavaScript & CSS, and tested using the React Testing Library. 
+The game was created using Firebase, React, JavaScript & CSS, and tested using the React Testing Library.
+
+Includes: 
+- Database functionality using Firebase Cloud Storage
+- Leaderboard that displays scores by time spent. 
+- Swear word filter on name input   
  
 Live site URL: https://itsaflamingo.github.io/wheres-waldo/
 
